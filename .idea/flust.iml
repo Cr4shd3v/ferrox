@@ -5,9 +5,14 @@
       <sourceFolder url="file://$MODULE_DIR$/backend/flust_core/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/flust_sentry/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flust_frontend_core/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flust_frontend_core/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/flust_frontend_core/build" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>
