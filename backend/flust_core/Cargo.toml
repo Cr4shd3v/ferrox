@@ -1,0 +1,27 @@
+[package]
+name = "flust_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dotenvy = { workspace = true }
+diesel = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+rocket = { workspace = true, features = ["secrets"] }
+lettre = { workspace = true }
+deadpool = { workspace = true }
+diesel-async = { workspace = true, features = ["postgres", "deadpool"] }
+uuid = { workspace = true }
+time = { workspace = true, features = ["serde"] }
+jwt = { workspace = true }
+hmac = { workspace = true }
+sha2 = { workspace = true }
+rand = { workspace = true }
+argon2 = { workspace = true }
+
+flust_sentry = { workspace = true, optional = true }
+
+[features]
+default = []
+sentry = ["flust_sentry"]

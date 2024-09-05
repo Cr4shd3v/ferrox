@@ -1,0 +1,8 @@
+[package]
+name = "flust_sentry"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rocket = { workspace = true }
+sentry = { workspace = true }
