@@ -585,6 +585,36 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e8c02a5121d4ea3eb16a80748c74f5549a5665e4c21333c6098f283870fbdea6"
 
 [[package]]
+name = "ferrox_core"
+version = "0.1.0"
+dependencies = [
+ "argon2",
+ "deadpool",
+ "diesel",
+ "diesel-async",
+ "dotenvy",
+ "ferrox_sentry",
+ "hmac",
+ "jwt",
+ "lettre",
+ "rand",
+ "rocket",
+ "serde",
+ "serde_json",
+ "sha2",
+ "time",
+ "uuid",
+]
+
+[[package]]
+name = "ferrox_sentry"
+version = "0.1.0"
+dependencies = [
+ "rocket",
+ "sentry",
+]
+
+[[package]]
 name = "figment"
 version = "0.10.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -608,36 +638,6 @@ dependencies = [
  "lazy_static",
  "libc",
  "winapi",
-]
-
-[[package]]
-name = "flust_core"
-version = "0.1.0"
-dependencies = [
- "argon2",
- "deadpool",
- "diesel",
- "diesel-async",
- "dotenvy",
- "flust_sentry",
- "hmac",
- "jwt",
- "lettre",
- "rand",
- "rocket",
- "serde",
- "serde_json",
- "sha2",
- "time",
- "uuid",
-]
-
-[[package]]
-name = "flust_sentry"
-version = "0.1.0"
-dependencies = [
- "rocket",
- "sentry",
 ]
 
 [[package]]

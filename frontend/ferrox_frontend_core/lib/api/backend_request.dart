@@ -1,6 +1,6 @@
-import 'package:flust_frontend_core/api/backend_api.dart';
-import 'package:flust_frontend_core/api/method.dart';
-import 'package:flust_frontend_core/api/std_response.dart';
+import 'package:ferrox_frontend_core/api/backend_api.dart';
+import 'package:ferrox_frontend_core/api/method.dart';
+import 'package:ferrox_frontend_core/api/std_response.dart';
 
 class BackendRequest {
   final HttpMethod method;

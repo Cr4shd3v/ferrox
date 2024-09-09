@@ -1,5 +1,5 @@
 [package]
-name = "flust_sentry"
+name = "ferrox_sentry"
 version = "0.1.0"
 edition = "2021"
 

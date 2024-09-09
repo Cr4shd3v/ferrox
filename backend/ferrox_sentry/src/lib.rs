@@ -1,6 +1,6 @@
-//! Contains the implementation of sentry for flust.
+//! Contains the implementation of sentry for ferrox.
 //!
-//! Use [RocketSentry::fairing] to create a fairing for rocket.
+//! Use [FerroxSentry::fairing] to create a fairing for rocket.
 
 use std::sync::Mutex;
 
@@ -9,15 +9,15 @@ use rocket::{async_trait, info, Build, Rocket};
 use sentry::{release_name, ClientInitGuard, ClientOptions};
 
 /// Fairing implementing sentry for this instance.
-pub struct RocketSentry {
+pub struct FerroxSentry {
     guard: Mutex<Option<ClientInitGuard>>,
 }
 
-impl RocketSentry {
+impl FerroxSentry {
     /// Initializes this [Fairing].
     #[must_use]
     pub fn fairing() -> impl Fairing {
-        RocketSentry {
+        FerroxSentry {
             guard: Mutex::new(None),
         }
     }
@@ -38,7 +38,7 @@ impl RocketSentry {
 }
 
 #[async_trait]
-impl Fairing for RocketSentry {
+impl Fairing for FerroxSentry {
     fn info(&self) -> Info {
         Info {
             name: "rocket-sentry",

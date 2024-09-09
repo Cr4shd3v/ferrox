@@ -7,14 +7,14 @@
 
 #[macro_use] extern crate rocket;
 #[cfg(feature = "sentry")]
-pub extern crate flust_sentry as sentry;
+pub extern crate ferrox_sentry as sentry;
 
 pub mod prelude {
     //! Contains reexports of all modules for easy importing.
     //!
     //! Example:
     //! ```rust
-    //!  use flust_core::prelude::*;
+    //!  use ferrox_core::prelude::*;
     //! ```
 
     pub extern crate lettre;

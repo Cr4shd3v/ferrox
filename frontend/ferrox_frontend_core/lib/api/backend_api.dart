@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:flust_frontend_core/api/method.dart';
-import 'package:flust_frontend_core/api/std_response.dart';
-import 'package:flust_frontend_core/api/url/url_stub.dart'
-  if (dart.library.io) 'package:flust_frontend_core/api/url/url_io.dart'
-  if (dart.library.html) 'package:flust_frontend_core/api/url/url_web.dart';
+import 'package:ferrox_frontend_core/api/method.dart';
+import 'package:ferrox_frontend_core/api/std_response.dart';
+import 'package:ferrox_frontend_core/api/url/url_stub.dart'
+  if (dart.library.io) 'package:ferrox_frontend_core/api/url/url_io.dart'
+  if (dart.library.html) 'package:ferrox_frontend_core/api/url/url_web.dart';
 import 'package:http/http.dart' as http;
 
 

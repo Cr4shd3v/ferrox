@@ -1,5 +1,5 @@
 [package]
-name = "flust_core"
+name = "ferrox_core"
 version = "0.1.0"
 edition = "2021"
 
@@ -20,8 +20,8 @@ sha2 = { workspace = true }
 rand = { workspace = true }
 argon2 = { workspace = true }
 
-flust_sentry = { workspace = true, optional = true }
+ferrox_sentry = { workspace = true, optional = true }
 
 [features]
 default = []
-sentry = ["flust_sentry"]
+sentry = ["ferrox_sentry"]
