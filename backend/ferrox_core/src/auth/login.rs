@@ -1,7 +1,7 @@
 use crate::prelude::*;
 use argon2::password_hash::rand_core::OsRng;
 use argon2::password_hash::SaltString;
-use argon2::{Argon2, PasswordHasher};
+use argon2::{Argon2, PasswordHash, PasswordHasher, PasswordVerifier};
 use hmac::{Hmac, Mac};
 use jwt::{SignWithKey, VerifyWithKey};
 use rand::distributions::Alphanumeric;
@@ -88,6 +88,13 @@ pub trait Login: Send + Sync {
         let salt = SaltString::generate(&mut OsRng);
         let argon = Argon2::default();
         Ok(argon.hash_password(raw_pw, &salt)?.to_string())
+    }
+
+    /// Verifies the password for this login.
+    fn verify_password(raw_pw: &[u8], pw_hash: &str) -> Result<(), argon2::password_hash::Error> {
+        let argon = Argon2::default();
+        let hash = PasswordHash::new(pw_hash)?;
+        argon.verify_password(raw_pw, &hash)
     }
 }
 
