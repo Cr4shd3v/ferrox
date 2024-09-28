@@ -10,6 +10,7 @@ ferrox_sentry = { path = "backend/ferrox_sentry", version = "0.1.0" }
 # External
 rocket = "^0.5"
 diesel = "^2.2"
+diesel_migrations = "^2.2"
 diesel-async = "^0.5"
 deadpool = "^0.12"
 serde = "^1.0"
@@ -25,3 +26,4 @@ sha2 = "^0.10"
 argon2 = "^0.5"
 rand = "^0.8"
 sentry = "^0.34"
+tokio = "^1.40"

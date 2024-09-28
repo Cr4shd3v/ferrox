@@ -6,12 +6,13 @@ edition = "2021"
 [dependencies]
 dotenvy = { workspace = true }
 diesel = { workspace = true }
+diesel_migrations = { workspace = true, features = ["postgres"] }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 rocket = { workspace = true, features = ["secrets"] }
 lettre = { workspace = true }
 deadpool = { workspace = true }
-diesel-async = { workspace = true, features = ["postgres", "deadpool"] }
+diesel-async = { workspace = true, features = ["postgres", "deadpool", "async-connection-wrapper"] }
 uuid = { workspace = true }
 time = { workspace = true, features = ["serde"] }
 jwt = { workspace = true }
@@ -19,6 +20,7 @@ hmac = { workspace = true }
 sha2 = { workspace = true }
 rand = { workspace = true }
 argon2 = { workspace = true }
+tokio = { workspace = true, features = ["rt"] }
 
 ferrox_sentry = { workspace = true, optional = true }
 

@@ -3,17 +3,31 @@
 //! Use [DatabaseFairing] as fairing for rocket.
 
 use std::env;
-use std::sync::OnceLock;
+use std::sync::{Arc, Mutex, OnceLock};
 
 use deadpool::managed::Object;
+use diesel::pg::Pg;
+use diesel_async::async_connection_wrapper::AsyncConnectionWrapper;
 use diesel_async::pooled_connection::deadpool::Pool;
 use diesel_async::pooled_connection::AsyncDieselConnectionManager;
 use diesel_async::AsyncPgConnection;
+use diesel_migrations::{EmbeddedMigrations, MigrationHarness};
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::{Build, Rocket};
 
 /// Fairing initializing the [DbPool].
-pub struct DatabaseFairing;
+#[derive(Default)]
+pub struct DatabaseFairing {
+    migrations: Arc<Mutex<Option<EmbeddedMigrations>>>,
+}
+
+impl DatabaseFairing {
+    /// Allows to specify an instance of [EmbeddedMigrations] to be executed at startup
+    pub fn with_migrations(mut self, migrations: EmbeddedMigrations) -> Self {
+        self.migrations = Arc::new(Mutex::new(Some(migrations)));
+        self
+    }
+}
 
 #[async_trait]
 impl Fairing for DatabaseFairing {
@@ -26,6 +40,17 @@ impl Fairing for DatabaseFairing {
 
     async fn on_ignite(&self, rocket: Rocket<Build>) -> rocket::fairing::Result {
         DB_POOL.get_or_init(init_db);
+
+        if self.migrations.lock().unwrap().is_some() {
+            let embedded_migrations = {
+                let mut migrations = self.migrations.lock().unwrap();
+                std::mem::take(&mut *migrations).unwrap()
+            };
+            let conn = DbPool::get_conn().await.unwrap();
+            tokio::task::spawn_blocking(move || {
+                <AsyncConnectionWrapper<PooledConnection> as MigrationHarness<Pg>>::run_pending_migrations::<EmbeddedMigrations>(&mut AsyncConnectionWrapper::from(conn), embedded_migrations).unwrap();
+            });
+        }
 
         Ok(rocket)
     }
