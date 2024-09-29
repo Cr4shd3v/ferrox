@@ -13,7 +13,7 @@ use diesel_async::pooled_connection::AsyncDieselConnectionManager;
 use diesel_async::AsyncPgConnection;
 use diesel_migrations::{EmbeddedMigrations, MigrationHarness};
 use rocket::fairing::{Fairing, Info, Kind};
-use rocket::{Build, Rocket};
+use rocket::{tokio, Build, Rocket};
 
 /// Fairing initializing the [DbPool].
 #[derive(Default)]
