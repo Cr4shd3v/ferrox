@@ -6,6 +6,8 @@ resolver = "2"
 # Own crates
 ferrox_core = { path = "backend/ferrox_core", version = "0.1.0" }
 ferrox_sentry = { path = "backend/ferrox_sentry", version = "0.1.0" }
+ferrox_env = { path = "backend/ferrox_env", version = "0.1.0" }
+ferrox_mailer = { path = "backend/ferrox_mailer", version = "0.1.0" }
 
 # External
 rocket = "^0.5"

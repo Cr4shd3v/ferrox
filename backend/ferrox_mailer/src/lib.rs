@@ -1,22 +1,24 @@
 //! Contains the implementation of [Mailer] to send emails through smtp.
 //!
-//! Use [RocketMailerFairing] as fairing for rocket.
+//! Use [FerroxMailerFairing] as fairing for rocket.
+
+pub extern crate lettre;
 
 use std::ops::Deref;
 use std::sync::OnceLock;
 
 use lettre::SmtpTransport;
 use rocket::fairing::{Fairing, Info, Kind};
-use rocket::{Build, Rocket};
+use rocket::{async_trait, error, Build, Rocket};
 
 /// Fairing initializing [Mailer].
-pub struct RocketMailerFairing;
+pub struct FerroxMailerFairing;
 
 #[async_trait]
-impl Fairing for RocketMailerFairing {
+impl Fairing for FerroxMailerFairing {
     fn info(&self) -> Info {
         Info {
-            name: "rocket-mailer",
+            name: "ferrox-mailer",
             kind: Kind::Ignite,
         }
     }
@@ -64,7 +66,7 @@ impl Mailer {
     /// # Safety
     /// This requires [Self::get_or_init] to be called first.
     ///
-    /// This usually happens through the [RocketMailerFairing].
+    /// This usually happens through the [FerroxMailerFairing].
     pub fn get() -> &'static Self {
         MAILER.get().unwrap()
     }
@@ -85,7 +87,8 @@ impl Deref for Mailer {
 
 #[cfg(test)]
 mod tests {
-    use crate::prelude::*;
+    use ferrox_env::EnvLoader;
+    use crate::Mailer;
 
     #[test]
     fn test_mailer() {

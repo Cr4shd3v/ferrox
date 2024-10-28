@@ -1,0 +1,11 @@
+[package]
+name = "ferrox_mailer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lettre = { workspace = true }
+rocket = { workspace = true }
+
+[dev-dependencies]
+ferrox_env = { workspace = true }

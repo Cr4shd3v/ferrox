@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_core/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_sentry/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_env/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_mailer/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/frontend/ferrox_frontend_core/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/frontend/ferrox_frontend_core/.pub" />

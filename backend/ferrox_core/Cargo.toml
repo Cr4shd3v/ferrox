@@ -22,7 +22,14 @@ rand = { workspace = true }
 argon2 = { workspace = true }
 
 ferrox_sentry = { workspace = true, optional = true }
+ferrox_env = { workspace = true, optional = true }
+ferrox_mailer = { workspace = true, optional = true }
+
+[dev-dependencies]
+ferrox_env = { workspace = true }
 
 [features]
 default = []
-sentry = ["ferrox_sentry"]
+sentry = ["dep:ferrox_sentry"]
+env = ["dep:ferrox_env"]
+mailer = ["dep:ferrox_mailer"]

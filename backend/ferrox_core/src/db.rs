@@ -91,11 +91,11 @@ impl DbPool {
 
 #[cfg(test)]
 mod tests {
+    use ferrox_env::EnvLoader;
     use diesel::sql_types::Text;
     use diesel::IntoSql;
     use diesel_async::RunQueryDsl;
-
-    use crate::prelude::*;
+    use crate::db::DbPool;
 
     #[async_test]
     async fn test_db() {

@@ -605,6 +605,8 @@ dependencies = [
  "diesel-async",
  "diesel_migrations",
  "dotenvy",
+ "ferrox_env",
+ "ferrox_mailer",
  "ferrox_sentry",
  "hmac",
  "jwt",
@@ -616,6 +618,22 @@ dependencies = [
  "sha2",
  "time",
  "uuid",
+]
+
+[[package]]
+name = "ferrox_env"
+version = "0.1.0"
+dependencies = [
+ "dotenvy",
+]
+
+[[package]]
+name = "ferrox_mailer"
+version = "0.1.0"
+dependencies = [
+ "ferrox_env",
+ "lettre",
+ "rocket",
 ]
 
 [[package]]
