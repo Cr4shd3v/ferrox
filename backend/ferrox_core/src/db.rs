@@ -79,12 +79,12 @@ impl DbPool {
     /// This requires [Self::get_or_init_conn] to be called first.
     ///
     /// This usually happens through the [DatabaseFairing].
-    pub async fn get_conn() -> Result<Object<AsyncDieselConnectionManager<AsyncPgConnection>>, deadpool::managed::PoolError<diesel_async::pooled_connection::PoolError>> {
+    pub async fn get_conn() -> Result<PooledConnection, deadpool::managed::PoolError<diesel_async::pooled_connection::PoolError>> {
         DB_POOL.get().unwrap().get().await
     }
 
     /// Gets a connection and initialize the pool if not initialized.
-    pub async fn get_or_init_conn() -> Result<Object<AsyncDieselConnectionManager<AsyncPgConnection>>, deadpool::managed::PoolError<diesel_async::pooled_connection::PoolError>> {
+    pub async fn get_or_init_conn() -> Result<PooledConnection, deadpool::managed::PoolError<diesel_async::pooled_connection::PoolError>> {
         DB_POOL.get_or_init(init_db).get().await
     }
 }
