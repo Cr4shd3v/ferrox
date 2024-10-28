@@ -615,9 +615,9 @@ dependencies = [
 name = "ferrox_core"
 version = "0.1.0"
 dependencies = [
- "diesel",
  "ferrox_auth",
  "ferrox_db",
+ "ferrox_db_types",
  "ferrox_env",
  "ferrox_mailer",
  "ferrox_sentry",
@@ -636,6 +636,15 @@ dependencies = [
  "diesel_migrations",
  "ferrox_env",
  "rocket",
+]
+
+[[package]]
+name = "ferrox_db_types"
+version = "0.1.0"
+dependencies = [
+ "diesel",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]

@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-diesel = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 rocket = { workspace = true, features = ["secrets"] }
@@ -14,6 +13,7 @@ ferrox_env = { workspace = true, optional = true }
 ferrox_mailer = { workspace = true, optional = true }
 ferrox_auth = { workspace = true, optional = true }
 ferrox_db = { workspace = true, optional = true }
+ferrox_db_types = { workspace = true, optional = true }
 
 [dev-dependencies]
 ferrox_env = { workspace = true }
@@ -25,3 +25,4 @@ env = ["dep:ferrox_env"]
 mailer = ["dep:ferrox_mailer"]
 auth = ["dep:ferrox_auth"]
 db = ["dep:ferrox_db"]
+db_types = ["dep:ferrox_db_types"]

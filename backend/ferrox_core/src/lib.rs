@@ -14,7 +14,9 @@ pub extern crate ferrox_mailer as mailer;
 #[cfg(feature = "auth")]
 pub extern crate ferrox_auth as auth;
 #[cfg(feature = "db")]
-pub extern crate ferrox_auth as db;
+pub extern crate ferrox_db as db;
+#[cfg(feature = "db_types")]
+pub extern crate ferrox_db_types as db_types;
 
 pub mod prelude {
     //! Contains reexports of all modules for easy importing.
@@ -30,6 +32,7 @@ pub mod prelude {
     pub use crate::cors::*;
     #[cfg(feature = "db")]
     pub use crate::db::*;
+    #[cfg(feature = "db_types")]
     pub use crate::db_types::*;
     #[cfg(feature = "env")]
     pub use crate::env::*;
@@ -41,7 +44,6 @@ pub mod prelude {
     pub use crate::url_generator::*;
 }
 
-pub mod db_types;
 pub mod std_response;
 pub mod url_generator;
 #[cfg(debug_assertions)]

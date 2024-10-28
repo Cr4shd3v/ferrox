@@ -10,6 +10,7 @@ ferrox_env = { path = "backend/ferrox_env", version = "0.1.0" }
 ferrox_mailer = { path = "backend/ferrox_mailer", version = "0.1.0" }
 ferrox_auth = { path = "backend/ferrox_auth", version = "0.1.0" }
 ferrox_db = { path = "backend/ferrox_db", version = "0.1.0" }
+ferrox_db_types = { path = "backend/ferrox_db_types", version = "0.1.0" }
 
 # External
 rocket = "^0.5"
