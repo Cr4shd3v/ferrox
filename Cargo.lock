@@ -596,26 +596,46 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e8c02a5121d4ea3eb16a80748c74f5549a5665e4c21333c6098f283870fbdea6"
 
 [[package]]
-name = "ferrox_core"
+name = "ferrox_auth"
 version = "0.1.0"
 dependencies = [
  "argon2",
- "deadpool",
- "diesel",
- "diesel-async",
- "diesel_migrations",
- "ferrox_env",
- "ferrox_mailer",
- "ferrox_sentry",
+ "ferrox_db",
  "hmac",
  "jwt",
  "rand",
  "rocket",
  "serde",
- "serde_json",
  "sha2",
  "time",
  "uuid",
+]
+
+[[package]]
+name = "ferrox_core"
+version = "0.1.0"
+dependencies = [
+ "diesel",
+ "ferrox_auth",
+ "ferrox_db",
+ "ferrox_env",
+ "ferrox_mailer",
+ "ferrox_sentry",
+ "rocket",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "ferrox_db"
+version = "0.1.0"
+dependencies = [
+ "deadpool",
+ "diesel",
+ "diesel-async",
+ "diesel_migrations",
+ "ferrox_env",
+ "rocket",
 ]
 
 [[package]]

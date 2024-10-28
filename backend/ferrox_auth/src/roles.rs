@@ -85,11 +85,11 @@ macro_rules! define_role {
         #[allow(missing_docs)]
         pub struct $structName;
 
-        impl ferrox_core::auth::Role for $structName {
+        impl ferrox_auth::Role for $structName {
             const ROLE_NAME: &'static str = $value;
         }
     };
 }
 
-use crate as ferrox_core;
+use crate as ferrox_auth;
 define_role!(RoleUser, "ROLE_USER");

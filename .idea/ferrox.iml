@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_core/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_sentry/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_auth/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_db/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_env/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/backend/ferrox_mailer/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />

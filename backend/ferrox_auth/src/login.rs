@@ -1,4 +1,3 @@
-use crate::prelude::*;
 use argon2::password_hash::rand_core::OsRng;
 use argon2::password_hash::SaltString;
 use argon2::{Argon2, PasswordHash, PasswordHasher, PasswordVerifier};
@@ -15,6 +14,8 @@ use std::sync::OnceLock;
 use rocket::async_trait;
 use time::{Duration, OffsetDateTime};
 use uuid::Uuid;
+use ferrox_db::PooledConnection;
+use crate::{Roles, RolesMut, AUTH_COOKIE_NAME};
 
 static HMAC_SECRET: OnceLock<String> = OnceLock::new();
 

@@ -11,6 +11,10 @@ pub extern crate ferrox_sentry as sentry;
 pub extern crate ferrox_env as env;
 #[cfg(feature = "mailer")]
 pub extern crate ferrox_mailer as mailer;
+#[cfg(feature = "auth")]
+pub extern crate ferrox_auth as auth;
+#[cfg(feature = "db")]
+pub extern crate ferrox_auth as db;
 
 pub mod prelude {
     //! Contains reexports of all modules for easy importing.
@@ -20,9 +24,11 @@ pub mod prelude {
     //!  use ferrox_core::prelude::*;
     //! ```
 
+    #[cfg(feature = "auth")]
     pub use crate::auth::*;
     #[cfg(debug_assertions)]
     pub use crate::cors::*;
+    #[cfg(feature = "db")]
     pub use crate::db::*;
     pub use crate::db_types::*;
     #[cfg(feature = "env")]
@@ -40,5 +46,3 @@ pub mod std_response;
 pub mod url_generator;
 #[cfg(debug_assertions)]
 pub mod cors;
-pub mod db;
-pub mod auth;

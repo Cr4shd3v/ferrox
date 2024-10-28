@@ -5,8 +5,8 @@ use rocket::http::Status;
 use rocket::request::{FromRequest, Outcome};
 use rocket::{async_trait, Request};
 use time::OffsetDateTime;
-
-use crate::prelude::*;
+use ferrox_db::DbPool;
+use crate::{Login, LoginClaim, Permission};
 
 /// Request guard for authenticated endpoints.
 ///

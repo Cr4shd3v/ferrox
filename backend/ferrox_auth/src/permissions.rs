@@ -1,5 +1,5 @@
-use crate::prelude::*;
 use std::marker::PhantomData;
+use crate::{Role, Roles};
 
 /// Trait defining permission checking for tuples and [AnyPerm].
 ///
