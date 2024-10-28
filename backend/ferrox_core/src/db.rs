@@ -13,7 +13,7 @@ use diesel_async::pooled_connection::AsyncDieselConnectionManager;
 use diesel_async::AsyncPgConnection;
 use diesel_migrations::{EmbeddedMigrations, MigrationHarness};
 use rocket::fairing::{Fairing, Info, Kind};
-use rocket::{tokio, Build, Rocket};
+use rocket::{async_trait, tokio, Build, Rocket};
 
 /// Fairing initializing the [DbPool].
 #[derive(Default)]
@@ -95,6 +95,7 @@ mod tests {
     use diesel::sql_types::Text;
     use diesel::IntoSql;
     use diesel_async::RunQueryDsl;
+    use rocket::async_test;
     use crate::db::DbPool;
 
     #[async_test]

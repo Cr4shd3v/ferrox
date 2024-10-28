@@ -2,7 +2,7 @@
 
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::http::Header;
-use rocket::{Request, Response};
+use rocket::{async_trait, Request, Response};
 
 /// Development-only fairing to allow starting the frontend in development mode.
 pub struct CORS;

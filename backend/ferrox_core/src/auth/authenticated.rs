@@ -3,7 +3,7 @@ use std::ops::{Deref, DerefMut};
 
 use rocket::http::Status;
 use rocket::request::{FromRequest, Outcome};
-use rocket::Request;
+use rocket::{async_trait, Request};
 use time::OffsetDateTime;
 
 use crate::prelude::*;

@@ -6,7 +6,7 @@
 
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::http::uri::Origin;
-use rocket::{Build, Rocket};
+use rocket::{async_trait, Build, Rocket};
 use std::sync::OnceLock;
 
 /// Fairing to provide [UrlGenerator].

@@ -12,6 +12,7 @@ use sha2::Sha256;
 use std::error::Error;
 use std::fs;
 use std::sync::OnceLock;
+use rocket::async_trait;
 use time::{Duration, OffsetDateTime};
 use uuid::Uuid;
 

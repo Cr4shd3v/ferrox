@@ -5,7 +5,6 @@
 #![deny(missing_docs)]
 #![forbid(unsafe_code)]
 
-#[macro_use] extern crate rocket;
 #[cfg(feature = "sentry")]
 pub extern crate ferrox_sentry as sentry;
 #[cfg(feature = "env")]
