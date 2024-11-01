@@ -1,10 +1,14 @@
-//! Development-only module to allow the frontend in development mode.
+//! Contains the [CORS] fairing which sets the correct headers for flutter_rust_bridge.
+//! 
+//! In Development mode it also allows to use this backend for debug mode flutter.
 
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::http::Header;
 use rocket::{async_trait, Request, Response};
 
-/// Development-only fairing to allow starting the frontend in development mode.
+/// sets the correct headers for flutter_rust_bridge.
+///
+/// In Development mode it also allows to use this backend for debug mode flutter.
 pub struct CORS;
 
 #[async_trait]
