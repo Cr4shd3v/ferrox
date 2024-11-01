@@ -28,7 +28,6 @@ pub mod prelude {
 
     #[cfg(feature = "auth")]
     pub use crate::auth::*;
-    #[cfg(debug_assertions)]
     pub use crate::cors::*;
     #[cfg(feature = "db")]
     pub use crate::db::*;
@@ -46,5 +45,4 @@ pub mod prelude {
 
 pub mod std_response;
 pub mod url_generator;
-#[cfg(debug_assertions)]
 pub mod cors;

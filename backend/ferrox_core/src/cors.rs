@@ -17,9 +17,14 @@ impl Fairing for CORS {
     }
 
     async fn on_response<'r>(&self, _req: &'r Request<'_>, response: &mut Response<'r>) {
-        response.set_header(Header::new("Access-Control-Allow-Origin", "*"));
-        response.set_header(Header::new("Access-Control-Allow-Methods", "POST, GET, PATCH, DELETE, OPTIONS"));
-        response.set_header(Header::new("Access-Control-Allow-Headers", "*"));
-        response.set_header(Header::new("Access-Control-Allow-Credentials", "true"));
+        if cfg!(debug_assertions) {
+            response.set_header(Header::new("Access-Control-Allow-Origin", "*"));
+            response.set_header(Header::new("Access-Control-Allow-Methods", "POST, GET, PATCH, DELETE, OPTIONS"));
+            response.set_header(Header::new("Access-Control-Allow-Headers", "*"));
+            response.set_header(Header::new("Access-Control-Allow-Credentials", "true"));
+        }
+        
+        response.set_header(Header::new("Cross-Origin-Opener-Policy", "same-origin"));
+        response.set_header(Header::new("Cross-Origin-Embedder-Policy", "require-corp"));
     }
 }
