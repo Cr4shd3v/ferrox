@@ -14,6 +14,12 @@ class BackendApi {
 
   static void init(int devPort, Function() onUnauthorized) {
     baseUrl = getBaseUrl(devPort);
+    BackendApi.onUnauthorized = onUnauthorized;
+  }
+
+  static void initWithUrl(String url, Function() onUnauthorized) {
+    baseUrl = url;
+    BackendApi.onUnauthorized = onUnauthorized;
   }
 
   static Future<StdResponse?> request(HttpMethod method, String endpoint, {String? body, Map<String, String>? queryParams}) async {
