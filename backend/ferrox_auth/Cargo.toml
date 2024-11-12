@@ -4,14 +4,14 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rocket = { workspace = true }
+rocket = { workspace = true, features = ["secrets"] }
 time = { workspace = true, features = ["serde"] }
 argon2 = { workspace = true }
 hmac = { workspace = true }
 sha2 = { workspace = true }
 jwt = { workspace = true }
 rand = { workspace = true }
-uuid = { workspace = true }
+uuid = { workspace = true, features = ["serde"] }
 serde = { workspace = true, features = ["derive"] }
 
 ferrox_db = { workspace = true }
