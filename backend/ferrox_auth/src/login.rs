@@ -62,6 +62,7 @@ pub trait Login: Send + Sync {
     }
 
     /// Creates a cookie based on the JWT provided by [Self::create_token].
+    #[cfg(feature = "auth-from-cookie")]
     async fn create_cookie(&self, conn: &mut PooledConnection) -> Cookie<'static> {
         let mut cookie = Cookie::new(AUTH_COOKIE_NAME, self.create_token(conn).await);
         #[cfg(debug_assertions)]
@@ -70,6 +71,7 @@ pub trait Login: Send + Sync {
     }
 
     /// Constructs the logout cookie.
+    #[cfg(feature = "auth-from-cookie")]
     fn logout_cookie() -> Cookie<'static> {
         Cookie::build(AUTH_COOKIE_NAME).same_site(SameSite::None).build()
     }

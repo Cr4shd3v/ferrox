@@ -15,3 +15,8 @@ uuid = { workspace = true, features = ["serde"] }
 serde = { workspace = true, features = ["derive"] }
 
 ferrox_db = { workspace = true }
+
+[features]
+default = ["auth-from-cookie"]
+auth-from-cookie = []
+auth-from-header = []
