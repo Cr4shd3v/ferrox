@@ -15,7 +15,7 @@ use rocket::async_trait;
 use time::{Duration, OffsetDateTime};
 use uuid::Uuid;
 use ferrox_db::PooledConnection;
-use crate::{Roles, RolesMut, AUTH_COOKIE_NAME};
+use crate::{Roles, RolesMut};
 
 static HMAC_SECRET: OnceLock<String> = OnceLock::new();
 
@@ -64,7 +64,7 @@ pub trait Login: Send + Sync {
     /// Creates a cookie based on the JWT provided by [Self::create_token].
     #[cfg(feature = "auth-from-cookie")]
     async fn create_cookie(&self, conn: &mut PooledConnection) -> Cookie<'static> {
-        let mut cookie = Cookie::new(AUTH_COOKIE_NAME, self.create_token(conn).await);
+        let mut cookie = Cookie::new(crate::AUTH_COOKIE_NAME, self.create_token(conn).await);
         #[cfg(debug_assertions)]
         cookie.set_same_site(SameSite::None);
         cookie
@@ -73,7 +73,7 @@ pub trait Login: Send + Sync {
     /// Constructs the logout cookie.
     #[cfg(feature = "auth-from-cookie")]
     fn logout_cookie() -> Cookie<'static> {
-        Cookie::build(AUTH_COOKIE_NAME).same_site(SameSite::None).build()
+        Cookie::build(crate::AUTH_COOKIE_NAME).same_site(SameSite::None).build()
     }
 
     /// Retrieves a [Roles] struct from self for checking permissions.
