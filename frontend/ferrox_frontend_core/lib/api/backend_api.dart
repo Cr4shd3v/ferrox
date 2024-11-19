@@ -22,7 +22,7 @@ class BackendApi {
     BackendApi.onUnauthorized = onUnauthorized;
   }
 
-  static Future<StdResponse?> request(HttpMethod method, String endpoint, {String? body, Map<String, String>? queryParams}) async {
+  static Future<StdResponse?> request(HttpMethod method, String endpoint, {String? body, Map<String, String>? queryParams, Map<String, String>? headers}) async {
     var uri = Uri.parse('$baseUrl/$endpoint');
 
     if (queryParams != null) {
@@ -36,6 +36,10 @@ class BackendApi {
 
     if (method != HttpMethod.get) {
       request.headers['Content-Type'] = 'application/json';
+    }
+
+    if (headers != null) {
+      request.headers.addAll(headers);
     }
 
     http.StreamedResponse response;
